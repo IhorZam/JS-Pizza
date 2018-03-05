@@ -2,8 +2,7 @@
 
 @import "pizza/pizza-card";
 
-@rigth-part-width: 300px;
-
+@rigth-part-width: 330px;
 
 img {
   display: block;
@@ -19,10 +18,19 @@ img {
 .title{
   display: flex;
   justify-content: center;
+  span.num_of{
+    color: white;
+    margin-left: 15px;
+    background-color: #ea862e;
+    border-radius: 45px;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+  }
 }
 
 .left-part{
-  padding-right: 300px;
+  padding-right: @rigth-part-width;
   position: relative;
   top: 120px;
 }
@@ -32,14 +40,14 @@ img {
   width: 100%;
   position: fixed;
   z-index: 5;
-  background-color: rgba(76, 76, 76, 0.95);
+  background-color: rgba(49, 49, 49, 0.95);
   display: flex;
   flex-direction: row;
   .lines{
     height: 100%;
     width: 100%;
     margin-left: 130px;
-    margin-right: 295px;
+    margin-right: @rigth-part-width + 15px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -49,9 +57,11 @@ img {
       padding-bottom: 10px;
       display: flex;
       flex-direction: row;
-      justify-content: flex-start;
+      justify-content: space-between;
+      align-items: flex-end;
       height: 50%;
-      color: white;
+      position: relative;
+      color: #bdbdbd;
       border-bottom: 1px solid;
       .number{
         display: flex;
@@ -65,36 +75,103 @@ img {
         flex-direction: column;
         justify-content: flex-end;
         font-size: 12px;
+        margin-left: -100px;
         margin-right: 30px;
       }
       .freeDel{
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
+        margin-left: -100px;
         font-size: 15px;
       }
 
       .enter{
-        position: relative;
+        position: inherit;
         right: 0;
       }
 
     }
     }
     .down-line{
-      height: 48%;
+      height: 50%;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-content: flex-end;
     }
   }
 
 
 .right-part{
-  width: 280px;
+  width: @rigth-part-width;
+  box-shadow: 0 0 8px;
   height: 100%;
   position:fixed;
   z-index: 6;
   right: 0;
   top: 0;
   background-color: aliceblue;
+  .bought{
+    div{
+      margin-top: 10px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      span.num_of{
+        color: white;
+        margin-left: 15px;
+        background-color: #ea862e;
+        border-radius: 45px;
+        text-align: center;
+        width: 20px;
+        height: 20px;
+        margin-top: 25px;
+      }
+    }
+
+    width: 100%;
+    background-color: white;
+    display: flex;
+    height: 90px;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+  }
+
+  .buy{
+    width: 100%;
+    height: 150px;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: flex-end;
+    .btn{
+      margin-top: 52px;
+      width: 250px;
+      height: 45px;
+      font-size: 20px;
+    }
+    background-color: white;
+  }
+
+  .cart{
+    margin-top: 50px;
+    div{
+      font-weight: bold;
+      font-size: 18px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-content: center;
+    }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+  }
 }
 
 .site-icon{
@@ -122,6 +199,120 @@ img {
     transform: scaleY(-1);
   }
 }
+
+.disc{
+
+  width: 100px;
+  z-index: 6;
+  position: fixed;
+  left: 15px;
+  bottom: 0;
+  background-color: #ea862e;
+  .info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 120px;
+    h4{
+      color: aliceblue;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: 0;
+    }
+    .upper{
+      border-bottom: 2px #bf6b22 dotted;
+      padding-bottom: 7px;
+      text-align: center;
+    }
+    .downer{
+      text-align: center;
+    }
+
+  }
+  img{
+    position: relative;
+    bottom: 10px;
+  }
+}
+
+.caption{
+  .title{
+    font-size: 20px;
+    font-weight: bold;
+    color: #ea862e;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: flex-end;
+  }
+
+  .type{
+    font-size: 12px;
+    color: #646464;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: flex-end;
+  }
+}
+
+.pizza-small{
+  padding: 7px;
+  div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+  }
+  .price{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ea862e;
+  }
+}
+
+.pizza-big{
+  padding: 7px;
+  div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+  }
+  .price{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ea862e;
+  }
+}
+
+.all-pizza-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  a.btn-default{
+    color: #ea862e;
+    border: 0;
+  }
+  a.btn-warning:hover{
+    color: white;
+    background-color: #ea862e;
+  }
+}
+
+
+
 
 
 
