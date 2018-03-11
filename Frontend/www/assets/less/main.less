@@ -1,6 +1,7 @@
 @mainColor: blue;
 
 @import "pizza/pizza-card";
+@import "pizza/cart_item";
 
 @rigth-part-width: 330px;
 
@@ -118,7 +119,7 @@ img {
       display: flex;
       flex-direction: row;
       justify-content: space-around;
-      span.num_of{
+      span.num_of_bought{
         color: white;
         margin-left: 15px;
         background-color: #ea862e;
@@ -157,9 +158,9 @@ img {
     background-color: white;
   }
 
-  .cart{
+  #cart{
     margin-top: 50px;
-    div{
+    .empty{
       font-weight: bold;
       font-size: 18px;
       display: flex;
@@ -201,7 +202,6 @@ img {
 }
 
 .disc{
-
   width: 100px;
   z-index: 6;
   position: fixed;
@@ -237,63 +237,6 @@ img {
   }
 }
 
-.caption{
-  .title{
-    font-size: 20px;
-    font-weight: bold;
-    color: #ea862e;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-content: flex-end;
-  }
-
-  .type{
-    font-size: 12px;
-    color: #646464;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-content: flex-end;
-  }
-}
-
-.pizza-small{
-  padding: 7px;
-  div{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-content: center;
-  }
-  .price{
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-    font-size: 20px;
-    font-weight: bold;
-    color: #ea862e;
-  }
-}
-
-.pizza-big{
-  padding: 7px;
-  div{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-content: center;
-  }
-  .price{
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-    font-size: 20px;
-    font-weight: bold;
-    color: #ea862e;
-  }
-}
 
 .all-pizza-bar {
   display: flex;
