@@ -70,6 +70,7 @@ function updateCart() {
     var button = $(".right-part").find(".buy");
     var info = $(".right-part").find(".bought");
     var counter = 0;
+    var allPrize = 0;
     $(info).find(".clear").click(function () {
         Cart = [];
         updateCart();
@@ -77,18 +78,28 @@ function updateCart() {
 
 
     if (Cart.length === 0){
+        button.find(".sum").remove();
+
         localStorage.clear();
         var html_code = Templates.PizzaCart_Empty();
         $cart.append($(html_code));
         $(button).find("a").addClass("disabled");
+        button.prepend("<div class=\"sum\"><span>Сума замовлення:</span><span>" + allPrize + "</span></div>");
     }else {
+
+        button.find(".sum").remove();
         $(button).find("a").removeClass("disabled");
+
 
         //Онволення однієї піци
         function showOnePizzaInCart(cart_item) {
             var html_code = Templates.PizzaCart_OneItem(cart_item);
 
             counter += 1;
+
+            var price = parseInt(cart_item.pizza[cart_item.size].price);
+
+            allPrize += price * cart_item.quantity;
 
             var $node = $(html_code);
 
@@ -110,9 +121,16 @@ function updateCart() {
             });
 
             $cart.append($node);
+
+            $node.find(".delete").click(function () {
+               removeFromCart(cart_item);
+               updateCart();
+            });
         }
 
         Cart.forEach(showOnePizzaInCart);
+
+        button.prepend("<div class=\"sum\"><span>Сума замовлення:</span><span>" + allPrize + "</span></div>");
 
         localStorage.clear();
         localStorage.setItem("cart", JSON.stringify(Cart));
