@@ -1,0 +1,41 @@
+<% include common/header.ejs %>
+
+<div class="container-fluid">
+    <div class="left-part">
+        <div class="title h1 strong" >
+            <span>Усі піцци</span>
+            <span class="num_of">8</span>
+        </div>
+        <div class="all-pizza-bar">
+            <ul class="nav nav-pills">
+                <li id="menu-all" class="btn btn-warning">Усi</li>
+                <li id="menu-meat" class="btn btn-default">Мясні</li>
+                <li id="menu-spongebob-house" class="btn btn-default">З ананасами</li>
+                <li id="menu-mushrooms" class="btn btn-default">З грибами</li>
+                <li id="menu-squirdwart" class="btn btn-default">З морепродуктами</li>
+                <li id="menu-green" class="btn btn-default">Вега</li>
+            </ul>
+        </div>
+        <div id="pizza_list" >
+        </div>
+        <div class="right-part">
+            <div class="bought">
+                <div class="info">
+                    <span class="h3 bold">Замовлено</span>
+                </div>
+                <div>
+                    <span class="h6 clear" style="margin-top: 30px">Очистити замовлення</span>
+                </div>
+            </div>
+            <div id="cart">
+
+            </div>
+            <div class="buy">
+                <div>
+                    <a href="#" class="btn btn-warning">Замовити</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<% include common/footer.ejs %>

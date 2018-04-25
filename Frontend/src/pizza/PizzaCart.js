@@ -90,7 +90,7 @@ function updateCart() {
         button.find(".sum").remove();
         $(button).find("a").removeClass("disabled");
 
-
+        
         //Онволення однієї піци
         function showOnePizzaInCart(cart_item) {
             var html_code = Templates.PizzaCart_OneItem(cart_item);
