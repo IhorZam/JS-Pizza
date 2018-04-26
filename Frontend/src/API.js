@@ -1,6 +1,3 @@
-/**
- * Created by chaika on 09.02.16.
- */
 var API_URL = "http://localhost:5050";
 
 function backendGet(url, callback) {
@@ -8,7 +5,7 @@ function backendGet(url, callback) {
         url: API_URL + url,
         type: 'GET',
         success: function(data){
-           // console.log(JSON.parse(data));
+            // console.log(JSON.parse(data));
             callback(null, data);
         },
         error: function() {

@@ -4,6 +4,8 @@
 var Templates = require('../Templates');
 var Pizza_list = require('../Pizza_List');
 
+var order = require('./order.js');
+
 
 //Змінна в якій зберігаються перелік піц в кошику
 var Cart = [];
@@ -86,6 +88,8 @@ function updateCart() {
         $(button).find("a").addClass("disabled");
         button.prepend("<div class=\"sum\"><span>Сума замовлення:</span><span>" + allPrize + "</span></div>");
     }else {
+        $(button).find("a").click(finction())
+
 
         button.find(".sum").remove();
         $(button).find("a").removeClass("disabled");

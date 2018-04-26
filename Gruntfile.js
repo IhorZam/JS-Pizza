@@ -1,6 +1,3 @@
-/**
- * Created by Andriy on 10.03.2015.
- */
 module.exports = function(grunt) {
     //Налаштування збірки Grunt
     var config = {
