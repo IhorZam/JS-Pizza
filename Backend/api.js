@@ -4,7 +4,11 @@ var Pizza_List = require('./data/Pizza_List');
 
 exports.getPizzaList = function(req, res) {
     console.log("Success");
-    res.send(Pizza_List);
+    res.send(
+        {
+            list: Pizza_List,
+            success: true
+        });
 };
 
 exports.createOrder = function(req, res) {

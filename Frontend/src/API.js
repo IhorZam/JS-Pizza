@@ -1,4 +1,4 @@
-var API_URL = "http://localhost:5050";
+var API_URL = "http://localhost:5051";
 
 function backendGet(url, callback) {
     $.ajax({
@@ -20,8 +20,8 @@ function backendPost(url, data, callback) {
         type: 'POST',
         contentType : 'application/json',
         data: JSON.stringify(data),
-        success: function(data){
-            callback(null, data);
+        success: function(){
+            callback(null);
         },
         error: function() {
             callback(new Error("Ajax Failed"));

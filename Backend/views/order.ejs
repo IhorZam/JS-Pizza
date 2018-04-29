@@ -2,30 +2,56 @@
 
 <div class="order-form">
     <div class="order-body">
-        <form id="login-form" action="#" method="post" role="form" style="display: block;">
+        <form id="login-form" action="mainPage.ejs" method="post" role="form" class="rf" style="display: block;">
             <h2>Оформлення</h2>
             <div class="form-group">
-                <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Ім'я" value="">
+                <input type="text" name="username" id="username" tabindex="1" class="form-control rfield" placeholder="Ім'я" value="">
             </div>
             <div class="form-group">
-                <input type="text" name="address" id="address" tabindex="2" class="form-control" placeholder="Адреса">
+                <input type="text" name="address" id="address" tabindex="2" class="form-control rfield" placeholder="Адреса">
             </div>
             <div class="form-group">
-                <input type="text" name="telephone" id="telephone" tabindex="2" class="form-control" placeholder="Телефон">
+                <input type="text" name="telephone" id="telephone" tabindex="2" class="form-control rfield" placeholder="Телефон">
             </div>
             <div class="rem-ent">
                 <div class="form-group pull-right">
-                    <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Оформити">
+                    <input name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login btn-warning" value="Оформити">
                 </div>
             </div>
-            <div class="order-details">
-
-            </div>
         </form>
+            <div class="right-part">
+                <div class="bought">
+                    <div class="info">
+                        <span class="h3 bold">Замовлено</span>
+                    </div>
+                    <div>
+                        <span class="h6 clear" style="margin-top: 30px">Очистити замовлення</span>
+                    </div>
+                </div>
+                <div id="cart">
+
+                </div>
+                <div class="buy">
+
+                </div>
+            </div>
     </div>
 </div>
 
 
+<div class="disc">
+    <img class="discimg" src="assets/images/discount.svg">
+    <div class="info">
+        <h4 class="upper">Цього тижня на все</h4>
+        <h4 class="downer">-20%</h4>
+    </div>
+</div>
 
 
-<% include common/footer.ejs %>
+<!-- jQuery JavaScript -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"> </script>
+
+<!--Own JavaScript -->
+<script type="text/javascript"  src="assets/js/order.js"> </script>
+</body>
+</html>

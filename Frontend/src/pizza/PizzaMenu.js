@@ -113,7 +113,7 @@ function initialiseMenu() {
         if (err){
             alert(err.message);
         }else{
-            Pizza_List = list;
+            Pizza_List = list.list;
             showPizzaList(Pizza_List);
             updateListeners();
         }

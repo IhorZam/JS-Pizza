@@ -7,6 +7,9 @@ module.exports = function(grunt) {
         //Конфігурація для модуля browserify (перетворює require(..) в код
         browserify:     {
             //Загальні налаштування (grunt-browserify)
+
+            'Frontend/www/assets/js/order.js':['Frontend/src/pizza/order.js'],
+
             options:      {
 
                 //brfs замість fs.readFileSync вставляє вміст файлу
@@ -52,7 +55,7 @@ module.exports = function(grunt) {
     //Список завданнь по замовчування
     grunt.registerTask('default',
         [
-            'browserify:pizza',
+            'browserify:pizza'
             //Інші завдання які необхідно виконати
         ]
     );
