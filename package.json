@@ -15,6 +15,7 @@
     "brfs": "^1.6.1",
     "ejs": "^2.5.9",
     "express": "^4.16.3",
+    "google": "^2.1.0",
     "grunt": "^1.0.2",
     "grunt-browserify": "^5.3.0",
     "grunt-contrib-watch": "^1.0.1",
