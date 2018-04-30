@@ -21,8 +21,8 @@ function backendPost(url, data, callback) {
         type: 'POST',
         contentType : 'application/json',
         data: JSON.stringify(data),
-        success: function(){
-            callback(null);
+        success: function(data){
+            callback(null, data);
         },
         error: function() {
             callback(new Error("Ajax Failed"));
@@ -234,9 +234,6 @@ exports.PizzaCart_Empty = ejs.compile("<div class=\"empty\">\n    <span>Пуст
  * Created by chaika on 25.01.16.
  */
 
-
-//api liqpay public key i8226183233
-//api liqpay private key BJCvjgYiI0vJZhOalVQZGIKeDefrFPwQ7TwetY09
 
 
 $(function(){

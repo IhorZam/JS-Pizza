@@ -20,8 +20,8 @@ function backendPost(url, data, callback) {
         type: 'POST',
         contentType : 'application/json',
         data: JSON.stringify(data),
-        success: function(){
-            callback(null);
+        success: function(data){
+            callback(null, data);
         },
         error: function() {
             callback(new Error("Ajax Failed"));

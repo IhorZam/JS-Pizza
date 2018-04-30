@@ -21,8 +21,8 @@ function backendPost(url, data, callback) {
         type: 'POST',
         contentType : 'application/json',
         data: JSON.stringify(data),
-        success: function(){
-            callback(null);
+        success: function(data){
+            callback(null, data);
         },
         error: function() {
             callback(new Error("Ajax Failed"));
@@ -61,6 +61,33 @@ function buildPage(cart){
     var $order_det = $('#cart');
 
     var $footer = $(".right-part").find(".buy");
+
+    var allPrize = 0;
+
+    function showOnePizzaInCart(cart_item) {
+        var html_code = Templates.PizzaCart_OneItem(cart_item);
+
+        var price = parseInt(cart_item.pizza[cart_item.size].price);
+
+
+
+        allPrize += price * cart_item.quantity;
+
+        var $node = $(html_code);
+
+        $node.find(".plus").remove();
+
+        $node.find(".minus").remove();
+
+        $order_det.append($node);
+
+        $node.find(".delete").remove();
+    }
+
+    cart.forEach(showOnePizzaInCart);
+
+
+    $footer.prepend("<div class=\"sum\"><span>Сума замовлення:</span><span>" + allPrize + " грн.</span></div>");
 
     $('.rf').each(function(){
         var form = $(this),
@@ -137,45 +164,32 @@ function buildPage(cart){
                     username: document.forms['login-form'].elements['username'].value,
                     address:  document.forms['login-form'].elements['address'].value,
                     telephone: document.forms['login-form'].elements['telephone'].value,
+                    sum: allPrize,
                     cart: cart
                 };
-                api.createOrder(data, function (err) {
+                api.createOrder(data, function (err, data) {
                     if (err) {
                         alert(err.message);
                     } else {
-                        location.href = "/";
-                    }
+                            LiqPayCheckout.init({
+                                data: data.data,
+                                signature: data.signature,
+                                embedTo: "#liqpay",
+                                language: 'ru',
+                                mode: "embed"	//	embed	||	popup
+                            }).on("liqpay.callback", function (data) {
+                                console.log(data.status);
+                                console.log(data);
+                            }).on("liqpay.ready", function (data) {
+                            }).on("liqpay.close", function (data) {
+                                location.href = "/";
+                            });
+                        }
                 });
+
             }
         });
     });
-
-
-    var allPrize = 0;
-
-    function showOnePizzaInCart(cart_item) {
-        var html_code = Templates.PizzaCart_OneItem(cart_item);
-
-        var price = parseInt(cart_item.pizza[cart_item.size].price);
-
-
-
-        allPrize += price * cart_item.quantity;
-
-        var $node = $(html_code);
-
-        $node.find(".plus").remove();
-
-        $node.find(".minus").remove();
-
-        $order_det.append($node);
-
-        $node.find(".delete").remove();
-    }
-
-    cart.forEach(showOnePizzaInCart);
-
-    $footer.prepend("<div class=\"sum\"><span>Сума замовлення:</span><span>" + allPrize + "</span></div>");
 
     var myLatlng = new google.maps.LatLng(50.464379,30.519131);
     var map = new google.maps.Map(document.getElementById("googleMap"), {
